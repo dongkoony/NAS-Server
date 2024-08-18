@@ -20,32 +20,31 @@
 ## 설치 방법
 
 1. 저장소 복제:
-   ```
-   git clone https://github.com/dongkoony/nas-server.git
-   cd nas-project
-   ```
+```
+git clone https://github.com/dongkoony/nas-server.git
+cd nas-project
+```
 
 2. Conda 가상 환경 생성 및 활성화:
-   ```
-   conda create -n nas_env python=3.7
-   conda activate nas_env
-   ```
+```
+conda create -n nas_env python=3.7
+conda activate nas_env
+```
 
 3. 필요한 패키지 설치:
-   ```
-   conda install django
-   # 기타 필요한 패키지 추가
-   ```
+```
+conda install django
+```
 
 4. 데이터베이스 마이그레이션 적용:
-   ```
-   python manage.py migrate
-   ```
+```
+python manage.py migrate
+```
 
 5. 관리자 계정 생성:
-   ```
-   python manage.py createsuperuser
-   ```
+```
+python manage.py createsuperuser
+```
 
 ## 배포
 
