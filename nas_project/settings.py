@@ -1,8 +1,8 @@
 # ./nas_project/settings.py
 
 import os
-from pathlib import Path  # Path 클래스를 가져옵니다.
-from dotenv import load_dotenv  # 환경 변수 로드를 위한 dotenv 패키지
+from pathlib import Path
+from dotenv import load_dotenv
 
 # 프로젝트의 루트 디렉토리(BASE_DIR)를 정의합니다.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,10 +14,13 @@ load_dotenv()
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-key-if-not-found')
 
 # 디버그 모드 설정
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
 # 허용된 호스트 설정 (쉼표로 구분된 IP 주소를 리스트로 변환)
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
+# 루트 URL 설정
+ROOT_URLCONF = 'nas_project.urls'
 
 # 정적 파일 경로 설정
 STATIC_URL = '/static/'
@@ -66,3 +69,21 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# 데이터베이스
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'OPTIONS': {
+            'unix_socket': '/var/run/mysqld/mysqld.sock',
+        }
+    }
+}
+
+# 기본 자동 필드 설정
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
