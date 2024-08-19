@@ -64,7 +64,20 @@ This project is a personal NAS (Network Attached Storage) server and webpage bui
     ```bash
     pip install -r requirements.txt
     ```
-
+    ```bash
+    - mysql-server: MySQL server software, used to host a MySQL database server.
+      - sudo apt-get install mysql-server
+    
+    - libmysqlclient-dev: MySQL development library, supporting the `mysqlclient` Python package for communication with the MySQL server.
+      - sudo apt-get install libmysqlclient-dev
+    
+    - openssl: An open-source library supporting SSL/TLS communication.
+      - sudo apt-get install openssl
+    
+    - ufw: A simple firewall configuration tool.
+      - sudo apt-get install ufw
+    ```
+    
 4. **Environment Variables:**
 
     Create a `.env` file in the root directory and add the following variables:
