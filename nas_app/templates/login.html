@@ -1,21 +1,79 @@
 <!-- ./nas_app/templates/login.html -->
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
-</head>
-<body>
-    <h2>로그인</h2>
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">사용자 이름:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">비밀번호:</label>
-        <input type="password" id="password" name="password" required><br>
-        <button type="submit">로그인</button>
-    </form>
-</body>
-</html>
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/QQGE87PdKil
+-->
+
+<style>:root{--background:0 0% 100%;--foreground:240 10% 3.9%;--card:0 0% 100%;--card-foreground:240 10% 3.9%;--popover:0 0% 100%;--popover-foreground:240 10% 3.9%;--primary:240 5.9% 10%;--primary-foreground:0 0% 98%;--secondary:240 4.8% 95.9%;--secondary-foreground:240 5.9% 10%;--muted:240 4.8% 95.9%;--muted-foreground:240 3.8% 45%;--accent:240 4.8% 95.9%;--accent-foreground:240 5.9% 10%;--destructive:0 72% 51%;--destructive-foreground:0 0% 98%;--border:240 5.9% 90%;--input:240 5.9% 90%;--ring:240 5.9% 10%;--chart-1:173 58% 39%;--chart-2:12 76% 61%;--chart-3:197 37% 24%;--chart-4:43 74% 66%;--chart-5:27 87% 67%;--radius:0.5rem;}img[src="/placeholder.svg"],img[src="/placeholder-user.jpg"]{filter:sepia(.3) hue-rotate(-60deg) saturate(.5) opacity(0.8) }</style>
+<style>h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }
+</style>
+<style>body { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }
+</style>
+<div class="flex min-h-screen w-full flex-col bg-gradient-to-r from-[#f0f0f0] to-[#f5f5f5]">
+  <div class="container mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+    <div class="grid w-full max-w-md grid-cols-1 gap-8 rounded-lg bg-white p-8 shadow-lg sm:p-10">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">NAS에 오신 것을 환영합니다</h2>
+        <p class="text-muted-foreground">개인 NAS 대시보드에 액세스하려면 로그인하세요.</p>
+      </div>
+      <form class="space-y-4">
+        <div>
+          <label class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm font-medium" for="email">
+            이메일
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1"
+            id="email"
+            placeholder="name@example.com"
+            type="email"
+          />
+        </div>
+        <div>
+          <label
+            class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm font-medium"
+            for="password"
+          >
+            비밀번호
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1"
+            id="password"
+            placeholder="••••••••"
+            type="password"
+          />
+        </div>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+          로그인
+        </button>
+      </form>
+    </div>
+    <div class="mt-8 grid w-full max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-lg border text-card-foreground bg-white p-6 shadow-lg" data-v0-t="card">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <h3 class="whitespace-nowrap tracking-tight text-xl font-bold">저장 공간 사용량</h3>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <div class="text-4xl font-bold">75%</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-8 w-8 text-purple-500"
+            >
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
