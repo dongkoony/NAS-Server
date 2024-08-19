@@ -103,7 +103,7 @@ This project will be containerized using Docker to simplify deployment and scali
 
 - **Dockerfile**: Create a Dockerfile to define the Docker image.
 - **Docker Compose**: Use Docker Compose to manage multi-container applications, if needed.
-- **CI/CD Pipeline**: Implement a CI/CD pipeline to automate testing and deployment using tools like GitHub Actions.
+- **CI/CD Pipeline**: Implement a CI/CD pipeline to automate testing and deployment using tools like GitHub Actions or Jenkins.
 
 ## Versioning
 
