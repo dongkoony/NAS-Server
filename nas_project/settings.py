@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'django_extensions',  # Django Extensions 추가
 ]
 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'nas_app', 'static'),
+]
+
 # 템플릿 설정
 TEMPLATES = [
     {
