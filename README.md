@@ -3,6 +3,8 @@
 [![EN](https://img.shields.io/badge/lang-en-blue.svg)](README.en.md) 
 [![KR](https://img.shields.io/badge/lang-kr-red.svg)](README.md)
 
+#### [View English Documentation (EN)](README.en.md)
+
 이 프로젝트는 Django를 사용하여 구축된 개인 NAS(Network Attached Storage) 서버 및 웹페이지입니다. 파일 저장, 관리 및 접근에 대한 안전하고 효율적인 솔루션을 제공합니다. 이 서버는 쉽게 배포할 수 있도록 설계되었으며, Docker를 사용하여 컨테이너화하여 배포 및 확장성을 간소화할 계획입니다.
 
 ## 프로젝트 목표
