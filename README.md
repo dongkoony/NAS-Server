@@ -65,16 +65,16 @@
     pip install -r requirements.txt
     ```
     ```bash
-    - **mysql-server**: MySQL 서버 소프트웨어로, MySQL 데이터베이스를 호스팅하기 위한 서버 패키지.
+    - mysql-server: MySQL 서버 소프트웨어로, MySQL 데이터베이스를 호스팅하기 위한 서버 패키지.
       - sudo apt-get install mysql-server
     
-    - **libmysqlclient-dev**: MySQL 개발용 라이브러리로, `mysqlclient` Python 패키지가 MySQL 서버와 통신할 수 있도록 지원.
+    - libmysqlclient-dev: MySQL 개발용 라이브러리로, `mysqlclient` Python 패키지가 MySQL 서버와 통신할 수 있도록 지원.
       - sudo apt-get install libmysqlclient-dev
     
-    - **openssl**: SSL/TLS 통신을 지원하기 위한 오픈소스 라이브러리.
+    - openssl: SSL/TLS 통신을 지원하기 위한 오픈소스 라이브러리.
       - sudo apt-get install openssl
     
-    - **ufw**: 간단한 방화벽 설정을 지원하는 패키지.
+    - ufw: 간단한 방화벽 설정을 지원하는 패키지.
       - sudo apt-get install ufw
     ```
 
