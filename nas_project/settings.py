@@ -22,6 +22,9 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split('
 # 루트 URL 설정
 ROOT_URLCONF = 'nas_project.urls'
 
+# Tailwind CSS 설정
+TAILWIND_APP_NAME = 'theme'
+
 # 정적 파일 경로 설정
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -40,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'nas_app',  # 사용자 정의 앱
     'django_extensions',  # Django Extensions 추가
+    'tailwind',
+    'theme',
 ]
 
 STATIC_URL = '/static/'
