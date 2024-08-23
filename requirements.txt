@@ -4,6 +4,7 @@
 Django==3.2.25
 
 # 개발 도구
+django-tailwind # Django Tailwind css 설정
 django-extensions==3.2.3  # 추가 기능을 위한 Django 확장 패키지
 python-dotenv==1.0.0  # 환경 변수 로드를 위한 dotenv 패키지
 
@@ -18,3 +19,4 @@ cryptography==43.0.0  # 암호화 알고리즘 구현
 asgiref==3.7.2  # 비동기 지원
 sqlparse==0.4.4  # SQL 파싱 도구
 pytz==2024.1  # 타임존 지원
+
