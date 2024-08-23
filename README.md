@@ -19,7 +19,7 @@
 
 - **프레임워크**: Django (v3.2.25) - 빠른 개발과 깨끗하고 실용적인 설계를 장려하는 고수준 Python 웹 프레임워크입니다.
 - **데이터베이스**: SQLite (기본 내장), MySQL 또는 PostgreSQL을 프로덕션 환경에 사용할 수 있습니다.
-- **프론트엔드**: 기본 HTML/CSS 템플릿 (향후 개선 예정).
+- **프론트엔드**: 기본 HTML/CSS 템플릿 (향후 개선 예정 TailWind CSS).
 - **환경 관리**: `virtualenv` 또는 `conda`를 사용한 종속성 및 환경 관리.
 - **컨테이너화**: Docker - 컨테이너화를 통해 배포 및 확장성을 지원합니다.
 - **보안**: SSL/TLS 지원 및 암호화를 위해 Python의 `cryptography` 및 `pyOpenSSL` 라이브러리 사용.

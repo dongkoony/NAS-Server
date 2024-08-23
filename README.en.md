@@ -19,7 +19,7 @@ This project is a personal NAS (Network Attached Storage) server and webpage bui
 
 - **Framework**: Django (v3.2.25) - A high-level Python web framework that encourages rapid development and clean, pragmatic design.
 - **Database**: SQLite (Default), with options for MySQL or PostgreSQL for production environments.
-- **Frontend**: Basic HTML/CSS templates (with plans for future enhancement).
+- **Frontend**: Basic HTML/CSS templates (with plans for future enhancement. TailWind CSS).
 - **Environment Management**: Python `virtualenv` or `conda` for managing dependencies and environments.
 - **Containerization**: Docker - To be used for containerizing the application and ensuring consistent deployment across different environments.
 - **Security**: Python `cryptography` and `pyOpenSSL` libraries for SSL/TLS support and encryption.
