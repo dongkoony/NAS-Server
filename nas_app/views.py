@@ -16,7 +16,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('dashboard')  # 로그인 성공 후 대시보드로 리디렉션
+            return redirect('dashboard')
         else:
             return render(request, 'login.html', {'error': '아이디 또는 비밀번호가 올바르지 않습니다.'})
     return render(request, 'login.html')
@@ -24,14 +24,20 @@ def login_view(request):
 @login_required(login_url='/')
 def dashboard_view(request):
     if request.method == 'POST':
+        print(request.FILES)
         form = FileUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('dashboard')  # 업로드 후 대시보드로 리디렉션
+            nas_file = form.save()
+            print(f"File saved at: {nas_file.file.path}")  # 저장된 파일의 경로를 출력
+            print(f"MEDIA_ROOT is set to: {settings.MEDIA_ROOT}")
+            return redirect('dashboard')
+        else:
+            print("Form is not valid.")
+            print(form.errors)  # 폼 오류를 출력하여 문제를 진단
     else:
         form = FileUploadForm()
     
-    files = NASFile.objects.all()  # 업로드된 파일들을 가져옵니다.
+    files = NASFile.objects.all()
     return render(request, 'dashboard.html', {'form': form, 'files': files})
 
 @login_required(login_url='/')
