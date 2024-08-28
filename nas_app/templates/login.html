@@ -1,48 +1,66 @@
 <!-- ./nas_app/templates/login.html -->
 
-
-<style>:root{--background:0 0% 100%;--foreground:240 10% 3.9%;--card:0 0% 100%;--card-foreground:240 10% 3.9%;--popover:0 0% 100%;--popover-foreground:240 10% 3.9%;--primary:346.8 77.2% 49.8%;--primary-foreground:355.7 100% 99%;--secondary:240 4.8% 95.9%;--secondary-foreground:240 5.9% 10%;--muted:240 4.8% 95.9%;--muted-foreground:240 3.8% 45%;--accent:240 4.8% 95.9%;--accent-foreground:240 5.9% 10%;--destructive:0 72% 51%;--destructive-foreground:0 0% 98%;--border:240 5.9% 90%;--input:240 5.9% 90%;--ring:346.8 77.2% 49.8%;--chart-1:347 77% 50%;--chart-2:349 77% 62%;--chart-3:350 80% 72%;--chart-4:351 83% 82%;--chart-5:352 83% 91%;--radius:0.5rem;}img[src="/placeholder.svg"],img[src="/placeholder-user.jpg"]{filter:sepia(.3) hue-rotate(-60deg) saturate(.5) opacity(0.8) }</style>
-<style>h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }
-</style>
-<style>body { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }
-</style>
-<div class="flex h-screen items-center justify-center bg-gradient-to-r from-white to-[#f0e8ff] dark:bg-[#1a1a1a]">
-  <div class="w-full max-w-md rounded-lg bg-white p-8 shadow-lg dark:bg-[#2d2d2d] animate-fade-in">
-    <div class="mb-6 text-center">
-      <h2 class="text-2xl font-bold text-[#6b46c1] dark:text-[#9f7aea]">NAS에 오신 것을 환영합니다</h2>
-      <p class="text-muted-foreground">기본 아이디로 로그인하여 개인 NAS 서버에 액세스하세요.</p>
-    </div>
-    <form class="space-y-4">
-      <div>
-        <label
-          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          for="username"
-        >
-          아이디
-        </label>
-        <input
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1"
-          id="username"
-          type="text"
-          placeholder="아이디를 입력하세요"
-        />
-      </div>
-      <div>
-        <div class="flex items-center justify-between">
-          <label
-            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            for="password"
-          >
-            비밀번호
-          </label>
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAS 로그인</title>
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors duration-300">
+    <div class="w-full max-w-md p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg animate-[fadeIn_0.5s_ease-out]">
+        <div class="flex justify-center mb-8">
+            <!-- Placeholder for logo -->
+            <svg class="w-16 h-16 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+            </svg>
         </div>
-        <input
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1"
-          id="password"
-          placeholder="비밀번호를 입력하세요"
-          type="password"
-        />
-      </div>
-    </form>
-  </div>
-</div>
+        <h2 class="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">NAS에 오신 것을 환영합니다</h2>
+        <form class="space-y-6" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    아이디
+                </label>
+                <input id="username" name="username" type="text" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+                    dark:focus:ring-blue-500 dark:focus:border-blue-500 transition duration-150 ease-in-out"
+                    placeholder="아이디를 입력하세요">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    비밀번호
+                </label>
+                <input id="password" name="password" type="password" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+                    dark:focus:ring-blue-500 dark:focus:border-blue-500 transition duration-150 ease-in-out"
+                    placeholder="비밀번호를 입력하세요">
+            </div>
+            <div>
+                <button type="submit"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out
+                    dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-offset-gray-800">
+                    로그인
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+        feather.replace()
+    </script>
+</body>
+</html>
