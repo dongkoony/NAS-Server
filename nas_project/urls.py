@@ -1,7 +1,5 @@
 # ./nas_project/urls.py
 
-# ./nas_project/urls.py
-
 from django.contrib import admin
 from django.urls import path
 from nas_app import views
