@@ -1,27 +1,24 @@
-/*
- |--------------------------------------------------------------------------
- | Browser-sync config file
- |--------------------------------------------------------------------------
- |
- | For up-to-date information about the options:
- |   http://www.browsersync.io/docs/options/
- |
- | There are more options than you see here, these are just the ones that are
- | set internally. See the website for more info.
- |
- |
- */
+// ./theme/static_src/bs.config.js
 
 const tailwindConfig = require('./tailwind.config.js');
 
 module.exports = {
-    port: 8383,
-    ui: false,
-    logSnippet: false,
-    open: false,
-    reloadOnRestart: true,
     files: [
+        '../../**/*.html',
+        '../../**/static/**/*.(s)?css',
+        '../../**/static/**/*.js',
         '../static/css/dist/styles.css',
-        ...tailwindConfig.purge
-    ]
+    ],
+    ignore: [...(tailwindConfig.content || [])],
+    watch: true,
+    server: {
+        baseDir: "../../",  // 프로젝트 루트 디렉토리를 기준으로 설정
+        directory: true
+    },
+    port: 3000,  // 명시적으로 포트 지정
+    proxy: false,
+    open: false,  // 브라우저 자동 실행 방지
+    browser: "default",
+    notify: false,
+    injectChanges: true,
 };
