@@ -27,7 +27,11 @@ TAILWIND_APP_NAME = 'theme'
 
 # 정적 파일 경로 설정
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'nas_app', 'static'),
+    os.path.join(BASE_DIR, 'theme', 'static'),
+]
 
 # 로그인 및 리디렉션 설정
 LOGIN_URL = '/'  # 로그인 페이지로 리디렉션 설정
@@ -45,12 +49,6 @@ INSTALLED_APPS = [
     'django_extensions',  # Django Extensions 추가
     'tailwind',
     'theme',
-]
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'nas_app', 'static'),
 ]
 
 # 템플릿 설정
