@@ -20,14 +20,16 @@
 <body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors duration-300">
     <div class="w-full max-w-md p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg animate-[fadeIn_0.5s_ease-out]">
         <div class="flex justify-center mb-8">
-            <!-- Placeholder for logo -->
             <svg class="w-16 h-16 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
             </svg>
         </div>
         <h2 class="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">NAS에 오신 것을 환영합니다</h2>
-        <form class="space-y-6" method="post" action="{% url 'login' %}">
+        <form class="space-y-6" method="post" action="{% url 'login' %}" onsubmit="saveUsername()">
             {% csrf_token %}
+            {% if error %}
+                <div class="text-red-500 text-center">{{ error }}</div>
+            {% endif %}
             <div>
                 <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     아이디
@@ -50,6 +52,13 @@
                     dark:focus:ring-blue-500 dark:focus:border-blue-500 transition duration-150 ease-in-out"
                     placeholder="비밀번호를 입력하세요">
             </div>
+            <div class="flex items-center">
+                <input id="remember-username" name="remember-username" type="checkbox"
+                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                <label for="remember-username" class="ml-2 block text-sm text-gray-900 dark:text-gray-300">
+                    아이디 저장
+                </label>
+            </div>
             <div>
                 <button type="submit"
                     class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out
@@ -59,6 +68,26 @@
             </div>
         </form>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 페이지 로드 시 저장된 아이디를 로드
+            const savedUsername = localStorage.getItem('savedUsername');
+            if (savedUsername) {
+                document.getElementById('username').value = savedUsername;
+                document.getElementById('remember-username').checked = true;
+            }
+        });
+
+        function saveUsername() {
+            const remember = document.getElementById('remember-username').checked;
+            const username = document.getElementById('username').value;
+            if (remember) {
+                localStorage.setItem('savedUsername', username);
+            } else {
+                localStorage.removeItem('savedUsername');
+            }
+        }
+    </script>
     <script>
         feather.replace()
     </script>
