@@ -1,0 +1,21 @@
+<!-- ./nas_app/templates/file_list.html -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 목록</title>
+</head>
+<body>
+    <h1>파일 목록</h1>
+    <ul>
+        {% for file in files %}
+            <li>
+                {{ file.description }} - 
+                <a href="{% url 'file_download' file.id %}">{{ file.file.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
