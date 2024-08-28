@@ -6,16 +6,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>파일 목록</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
 </head>
-<body>
-    <h1>파일 목록</h1>
-    <ul>
-        {% for file in files %}
-            <li>
-                {{ file.description }} - 
-                <a href="{% url 'file_download' file.id %}">{{ file.file.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+    <div class="container mx-auto py-10">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mb-4 p-4 rounded-md {% if message.tags == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <h1 class="text-3xl font-bold mb-6">파일 목록</h1>
+        
+        {% if files %}
+            <ul class="space-y-2">
+                {% for file in files %}
+                    <li class="bg-white dark:bg-gray-800 p-4 rounded-md shadow">
+                        <span class="font-semibold">{{ file.description }}</span> - 
+                        <a href="{% url 'file_download' file.id %}" class="text-blue-600 dark:text-blue-400 hover:underline">
+                            {{ file.file.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-gray-600 dark:text-gray-400">업로드된 파일이 없습니다.</p>
+        {% endif %}
+
+        <div class="mt-6">
+            <a href="{% url 'dashboard' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                대시보드로 돌아가기
+            </a>
+        </div>
+    </div>
 </body>
 </html>
