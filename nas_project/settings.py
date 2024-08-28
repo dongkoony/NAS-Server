@@ -37,6 +37,10 @@ STATICFILES_DIRS = [
 LOGIN_URL = '/'  # 로그인 페이지로 리디렉션 설정
 LOGIN_REDIRECT_URL = '/dashboard/'  # 로그인 성공 후 리디렉션될 페이지
 
+# 파일이 저장될 디렉토리 설정
+MEDIA_ROOT = os.getenv('MEDIA_ROOT')
+MEDIA_URL = os.getenv('MEDIA_URL')  # 파일에 접근할 때 사용할 URL prefix
+
 # 설치된 앱들
 INSTALLED_APPS = [
     'django.contrib.admin',
