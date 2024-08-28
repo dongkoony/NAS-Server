@@ -1,0 +1,22 @@
+<!-- ./nas_app/templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAS</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto py-10">
+        <h1 class="text-3xl font-bold text-center text-gray-800 dark:text-white">
+            환영합니다, {{ user.first_name }} {{ user.last_name }}님!
+        </h1>
+        <p class="text-center text-gray-600 dark:text-gray-400 mt-4">
+            이곳은 대시보드 페이지입니다.
+        </p>
+        <!-- 대시보드 내용 추가 -->
+    </div>
+</body>
+</html>
