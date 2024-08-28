@@ -84,3 +84,4 @@ dmypy.json
 *.bak
 *~
 theme/static_src/package-lock.json
+package-lock.json
